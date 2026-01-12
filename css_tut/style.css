@@ -1,0 +1,28 @@
+/* This is an external style sheet. It can be applied to multiple files*/
+body{
+    background-color: black
+}
+h2{
+    color: tomato
+}
+/*To use an id- start with a #*/
+/* #p1{
+    color: orange
+}
+#p2{
+    color: yellowgreen
+}
+#p3{
+    color: aqua
+}
+#p4{
+    color: plum
+} */
+
+/*To apply to class use . */
+.odd{
+    color: yellowgreen
+}
+.even{
+    color:plum
+}
