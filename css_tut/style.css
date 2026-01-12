@@ -1,9 +1,44 @@
-/* This is an external style sheet. It can be applied to multiple files*/
+/* This is an external style sheet. It can be applied to multiple files
+NOTE: Figure out how to download different versions of fonts and add to fonts folder*/
+
+/*Must create font family for downloaded fonts*/
+@font-face{
+    src:url(fonts/Anton-Regular.ttf);
+    font-family: Anton;
+}
+
 body{
+    /*To add colors: names, rgb, heximal*/ 
+    /*Ex: rgb(255,0,0) hex: #hex_val_here*/
     background-color: black
 }
 h2{
-    color: tomato
+    /*Dashed, dotted, ridge,outset,none,solid*/
+    border-style: dashed;
+    border-width: 4px;
+    border-color:cornflowerblue;
+    /*Mkes edges rounded*/
+    border-radius: 15px;
+    color: tomato;
+    font-size: 40;
+
+    /*Adding margins*/
+    margin: 20px
+
+}
+h3{
+    color: black;
+    font-size: 30px;
+    /*First number is horizontal offset; second is vertical offset; 3rd for blur*/
+    text-shadow: 5px 3px 2px palevioletred, -3px 12px 2px turquoise;
+    background-color: white
+}
+
+#box1{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    box-shadow: 9px 8px 3px yellowgreen;
 }
 /*To use an id- start with a #*/
 /* #p1{
@@ -21,8 +56,50 @@ h2{
 
 /*To apply to class use . */
 .odd{
-    color: yellowgreen
+    /*You can left click the color box to pull up a small color box*/
+    /*shorthand*/
+    color: yellowgreen;
+    border: 3px solid orangered;
+    /*Arial is listed as a fallback if verdana can't be used*/
+    font-family: Anton;
+    font-size:1.1em
 }
 .even{
-    color:plum
+    color:plum;
+    /*To find new fonts- you can use google fonts*/
+    font-family: "lucida console", "courier new";
+    font-size: 20px;
+    font-weight: italic;
+    /*Can specify border side style individually*/
+    border-bottom: 3px solid greenyellow;
+    border-top:20px solid pink;
+    border-left: 3px solid peru;
+    border-right: 3px solid powderblue;
+}
+
+/*More on margins*/
+.box{
+    background-color:deeppink;
+    width:300px;
+    height: 10px;
+    margin: 50px
+
+}
+#box2{
+    margin-bottom: 20px;
+    margin-left: auto;
+
+}
+#box3{
+    /*Puts in center*/
+    margin:auto;
+}
+
+.floating{
+    color:aqua;
+}
+
+#img1{
+    float:left;
+    margin-right: 10px;
 }
