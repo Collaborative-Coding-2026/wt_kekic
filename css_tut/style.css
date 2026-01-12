@@ -112,3 +112,49 @@ h3{
     float:right;
     margin-left: 10px;
 }
+#overflow{
+    color:pink;
+}
+
+
+#visible{
+    color: pink;
+    border: 2px solid blue;
+    height: 50px;
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+#hidden{
+    color: pink;
+    border: 2px solid blue;
+    height: 50px;
+    font-size: 80px;
+    margin-bottom: 20px;
+    overflow:hidden
+}
+#clip{
+    color: pink;
+    border: 2px solid blue;
+    height: 50px;
+    font-size: 80px;
+    margin-bottom: 20px;
+    overflow:clip;
+    overflow-clip-margin: 13px
+}
+#scroll{
+    color: pink;
+    border: 2px solid blue;
+    height: 50px;
+    font-size: 80px;
+    margin-bottom: 20px;
+    overflow:scroll
+}
+#auto{
+    color: pink;
+    border: 2px solid blue;
+    height: 50px;
+    font-size: 80px;
+    margin-bottom: 20px;
+    overflow:auto
+}
