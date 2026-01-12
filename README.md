@@ -33,5 +33,11 @@ The index.html file contained in this html_tut folder contains an implementation
  
 #### 📂 css_tut
 CSS is used to change the design of a website; to learn CSS, I followed the same [guide](https://www.youtube.com/watch?v=HGTJBPNC-Gw&list=PLZPZq0r_RZOPP5Yjt6IqgytMRY5uLt4y3).
-
+This guide also covers several CSS topics including:
+* Background and font colors
+* Changing and importing fonts
+* Applying borders
+* Applying Margins
+* Applying Floats
+The index.html file contained in the css_tut provides a structure for implementing the CSS concepts described above. The style.css file is a stylesheet implementing the concepts.
 
