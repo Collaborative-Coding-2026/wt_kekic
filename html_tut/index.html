@@ -1,0 +1,250 @@
+<!--Index is usually used for the name of the homepage 
+Comment tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Comments-->
+
+<!--Can open with live server to see live updates-->
+
+<!--Contains in line CSS and Java Script-->
+<!-- Signifies doc is an html 5 document-->
+<!DOCTYPE html>
+
+<!--Most tags are in form of pairs with ending in /-->
+<html>
+    <!--Head Contains info about webpage-->
+    <head>
+        <title> my first website </title>
+        <!--Added a favicon-->
+        <link rel = "icon" type="image/jpg" href="images/favicon.jpg">
+    </head>
+    <!--Body contains visible stuff in webpage-->
+    <body>
+        <!--This is a header-->
+        <h1>
+            This is what an h1 heading looks like
+        </h1>
+        <h2>
+            This is what an h2 heading looks like
+        </h2>
+        <h3>
+            This is what an h3 heading looks like
+        </h3>
+        <p>
+            This is a paragraph. <br> I just entered a line break.
+            <hr>
+            Now I've added a horizontal line
+        </p>
+        <pre>
+            Fancy text and such
+            Using pre tag
+        </pre>
+        <hr>
+        <h3>
+            Trying out hyperlinks
+        </h3>
+        <!--Creating hyperlinks href= hyper reference, a means anchor-->
+        <a href="https://genius.com/Alkaline-trio-every-thug-needs-a-lady-lyrics" 
+        target="_blank"
+        title = "Goes to Genius">
+            click me plss
+        </a>
+
+        <hr>
+
+        <a href="lyrics.html">
+            song lyrics
+
+        </a>
+
+        <hr>
+        
+        <a href="mailto:test@fake.com">
+            email me
+        </a>
+        <hr>
+        <a href="https://www.youtube.com/watch?v=ABQJySM7G9E"
+        title = "Goes to silly video">
+
+                <img src = "images/angry_cat.jpg"
+                alt = "This is a picture of an angry kitty"
+                height = "200">
+
+        </a>
+
+        <img src="images/giphy.gif"
+        height = "200">
+
+        <br>
+        <hr>
+        Frame Dragging - The Grey Room
+        <!--Here's some audio and such-->
+        <br>
+        <br> 
+        <audio controls autoplay muted loop>
+            <source src="audio/Frame-Dragging - The Grey Room _ Density & Time.mp3" type = "audio/mpeg">
+        </audio>
+
+        <br>
+        <hr>
+        Nebula - The Grey Room
+        <br>
+        <audio controls>
+            <source src = "audio/Nebula - The Grey Room _ Density & Time.mp3">
+        </audio>
+
+        <br>
+        <hr>
+        Rapid Unscheduled Disassembly
+        <br>
+        <audio controls>
+            <source src="audio/Rapid Unscheduled Disassembly - The Grey Room _ Density & Time.mp3">
+        </audio>
+        <br>
+        <hr>
+        Video File!!
+        <br>
+        <!--Can use .mp4 .webm .ogg, can also add muted-->
+    <!--Blank makes it so link opens in new tab-->
+        <a target="_blank"
+    href="https://en.wikipedia.org/wiki/Crocodile" title = "Wikapedia for crocs">
+          <video
+         width = "500px" controls autoplay loop>
+        <!--Can add backups by adding more source-->
+        <source src = "videos/vecteezy_animation-of-a-cartoon-crocodile-dancing_11961085.mp4" type = "video/mp4">
+        </video>
+    </a>
+    <br>
+    <hr>
+    Trying out different texts
+
+    <!--Learning Texting Format-->
+    <p> This is normal text. </p>
+    <p> This is <b> bold </b> text. </p>
+    <p> This is <i> italic </i> text. </p>
+    <p> This is <u> underlined </u> text. </p>
+    <p> This is <del> deleted </del> text. </p>
+    <p> This is <big> big </big> text. </p>
+    <p> This is <small> small </small> text. </p>
+    <p> This is a <sub> subscript. </sub></p>
+    <p> This is a <sup> superscript </sup></p>
+    <p> This is <tt> monospaced text </tt></p>
+    <!--Defaults to yellow- can change with style-->
+    <p> This is  <mark style = "background-color: lightpink"> highlighted text. </mark></p>
+    <hr>
+
+    <h1> <span style = "background-color: tomato"> This is a span title </span> </h1>
+    <h1> <div style = "background-color: burlywood"> This is a div title.</div> </h1>
+    <p> <span style = "background-color: tomato"> This is a span sentence. </span></p>
+    <p><div style = "background-color: burlywood"> This is a div sentence. </div></p>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span style = "background-color: lightpink"> Ullam voluptate sint maxime esse! </span> Consequuntur debitis illum fuga, asperiores odio quisquam illo laudantium, tempora enim quas odit animi repudiandae incidunt quibusdam.
+    </p>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur ab dolores libero quia aperiam assumenda odio a doloremque sed! <div style = "background-color: lightpink"> Repellat totam dignissimos sapiente neque tenetur, quibusdam illum aliquid debitis nostrum.</div> </p>
+    <hr>
+    <h2> Lists !! </h2>
+    <!--Unordered list-->
+    <h3> Unordered List- Grocery List </h3>
+    <ul>
+        <li> milk </li>
+        <li> cookies </li>
+        <li> bread </li>
+        <ul>
+            <li> italian </li>
+            <li> sourdough </li>
+        </ul>
+
+    </ul>
+
+    <h3> Ordered List - To Do List </h3>
+    <ol>
+        <li> Go to Stevies </li>
+        <li> Go to King </li>
+        <li> Go to work </li>
+    </ol>
+
+    <h3> Description List - Fighting Game Terms</h3>
+    <dl style = "background-color:aquamarine; border: 2px solid">
+        <!--Dt means description term Dd means definition-->
+        <dt> Normal </dt>
+        <dd> A normal move or normal attack (often simply called a normal) is any attack performed using a single button press, without moving the joystick and usually without being in midair.</dd>
+        <dt> Juggle </dt>
+        <dd> A juggle describes the state during a combo in which the victim is hit multiple times while they are in mid-air (typically by a grounded opponent in this context). </dd>
+        <dt> Negative Edge </dt>
+        <dd> Use of button release in place of button press within a command input sequence; most Capcom fighting games allow special and super moves to be performed with this method. </dd>
+    </dl>
+
+    <hr>
+    <h3> Practcing Tables - Store Hours </h3>
+    <table border="2" style="background-color: black">
+        <!--Table row-->
+        <tr align = "center"  style="background-color: lightseagreen"> 
+            <!--Table header-->
+            <th> Sunday </th>
+            <th> Monday </th>
+            <th> Tuesday </th>
+            <th> Wednesday </th>
+            <th> Thursday </th>
+            <th> Friday </th>
+            <th> Saturday </th>
+
+        </tr>
+        <tr align = "center"  style="background-color: lightcyan">
+            <!--Table Data-->
+            <td> Closed </td>
+            <td> 10am - 5pm </td>
+            <td> 10am - 4pm </td>
+            <td> 10am - 5pm </td>
+            <td> 10am - 4pm</td>
+            <td> 10am - 5pm </td>
+            <td> Closed </td>
+        </tr>
+
+        
+    </table>
+    <hr>
+    <!--Adding Buttons-->
+    <!--Buttons can execute javascript code-->
+    <h3> Adding Buttons </h3>
+    <a href="https://www.guiltygear.com/ggst/en/">
+    <button style = "font-size:25px; background-color: lavenderblush; color: purple; border-radius: 25px;"> click for peak gaming</button>
+    </a>
+
+    <br>
+    <br>
+
+    <button onclick = "doSomething()" style = "font-size:25px; background-color: lavenderblush; color: purple; border-radius: 25px";> click to change message </button>
+    <p id = "greeting"> Hello World! </p>
+    <script>
+        function doSomething(){
+            document.getElementById("greeting").innerHTML = "bye bye world!"
+
+        }
+    </script>
+
+    <hr>
+
+    Practicing Forms
+    <br>
+    <!--action: where do we want to send our form to
+        method : get or post
+        Post is used for confidential info
+        Get is used for insensitive info -->
+    <form action="index.php" method="POST">
+        <label for = "username"> username: </label>
+        <input type="text" id="username" placeholder="ElpheltVal" minlength="6" maxlength="15" required >
+        <br>
+        <label for = "password"> password: </label>
+        <input type = "password" id = "password" required>
+        <br>
+        <label for = "email"> email: </label>
+        <input type="email" id="email" placeholder="evalentine@gmail.com">
+        <br>
+        <label for="phone"> phone number: </label>
+        <input type=""tel" id="phone" placeholder = "123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        <input type="reset">
+        <br>
+        <input type = "submit">
+    </form>
+
+</body>
+
+</html>
