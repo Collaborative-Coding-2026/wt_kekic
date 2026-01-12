@@ -17,7 +17,16 @@ Comment tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Comments-
     </head>
     <!--Body contains visible stuff in webpage-->
     <body>
+        <header style="background-color:aquamarine">
+            <h1> Welcome to my practice website! </h1>
+            <a href=""> Home </a>
+            <a href=""> About Us </a>
+            <a href=""> Contact Us </a>
+            <hr>
+
+        </header>
         <!--This is a header-->
+        <main>
         <h1>
             This is what an h1 heading looks like
         </h1>
@@ -222,13 +231,14 @@ Comment tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Comments-
 
     <hr>
 
-    Practicing Forms
+    <h3> Practicing Forms </h3>
     <br>
     <!--action: where do we want to send our form to
         method : get or post
         Post is used for confidential info
         Get is used for insensitive info -->
-    <form action="index.php" method="POST">
+    <!--If sending something large like image use multipart-->
+    <form action="index.php" method="POST" enctype="multipart/form-data">
         <label for = "username"> username: </label>
         <input type="text" id="username" placeholder="ElpheltVal" minlength="6" maxlength="15" required >
         <br>
@@ -239,12 +249,58 @@ Comment tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Comments-
         <input type="email" id="email" placeholder="evalentine@gmail.com">
         <br>
         <label for="phone"> phone number: </label>
-        <input type=""tel" id="phone" placeholder = "123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        <input type=""tel" id="phone" placeholder = "123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <br>
+        <label for = "bday"> birthday: </label>
+        <input type="date" id="bday">
+        <br>
+        <label for = "quantity"> quantity: </label>
+        <input type="number" max="5" min="0" id="quantity" value="1"><br>
+
+        <label for ="title"> title: </label>
+        <label for = "Mr."> Mr. </label>
+        <input type="radio" id = "Mr." value="Mr." name = "title">
+        <label for = "Ms."> Ms. </label>
+        <input type="radio" id = "Ms." value="Ms." name = "title">
+        <label for = "Ph.D"> Ph.D </label>
+        <input type="radio" id = "Ph.D" value="Ph.D" name="title">
+
+        <br>
+
+        <!--Dropdown-->
+        <label for = "payment" > payment: </label>
+        <select id="payment">
+            <option value="visa"> Visa </option>
+            <option value="mastercard"> Mastercard </option>
+            <option value="giftcard"> Giftcard </option>
+        </select><br>
+
+        <!--Checkbox-->
+        <label for = "subscribe"> subscribe: </label>
+        <input type="checkbox" id = "subscribe">
+        <br>
+
+        <label for = "comment"> comment: </label>
+        <textarea id = "comment" rows = "3" columns="25">
+
+        </textarea><br>
+
+        <label for = "file"> file: </label>
+        <input type="file" id = "file" accept = "image/png, image/jpg"><br>
         <input type="reset">
         <br>
         <input type = "submit">
     </form>
+    <hr>
+    </main>
+
+    <footer style="background-color:aquamarine">
+        author: Madison Kekic <br>
+        &copy; copyright reserved <br>
+        <small><a href="mailto:me@fake.com"> me@fake.com </a></small>
+    </footer>
 
 </body>
+
 
 </html>
