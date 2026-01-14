@@ -44,6 +44,7 @@ This guide also covers several CSS topics including:
 * Manipulating Height and Width
 * Position Options
 * Applying Background Images
+
 The index.html file contained in the css_tut provides a structure for implementing the CSS concepts described above. The style.css file is a stylesheet implementing the concepts. There are more topics in the guide that will be explored at a later date as needed.
 
 #### 📂js_tut
@@ -52,6 +53,7 @@ This guide covers several topics and mini projects to solidify them. The followi
 
 
 #### platformer
+
 
 
 
