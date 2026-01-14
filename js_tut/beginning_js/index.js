@@ -34,9 +34,8 @@ document.getElementById("mysubmit").onclick = greet_user;
 function age_update(){
     let age = Number(document.getElementById("myAge").value);
     newage = age+1;
-    document.getElementById("myh1").textContent = `Happy New Years Eve! You are ${age}, but will be ${newage}`;
+    document.getElementById("myh1").textContent = `Happy New Years Eve! You are ${age}, but will be ${newage} in 2026! Zoinks!`;
 }
 
-document.getElementById("myagesubmit").on_click = age_update;
+document.getElementById("myagesubmit").onclick = age_update;
 
-console.log(typeof age);
