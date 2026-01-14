@@ -11,7 +11,12 @@ body{
     /*To add colors: names, rgb, heximal*/ 
     /*Ex: rgb(255,0,0) hex: #hex_val_here*/
     background-color: black;
-
+    background-image: url(images/large-format-photo-print-of-mountains-and-lakes-l.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    /*Doesn't scroll with us*/
+    background-attachment: fixed;
+    background-size: cover;
     /*If images are overflowing- use display: flow-root*/
     border: 3px solid orange;
     display: flow-root;
@@ -177,4 +182,16 @@ span{
     float: left;
     box-sizing: border-box;
     text-align: center;
+    min-height: 50%;
+    margin-bottom: 20px;
 }
+
+#pos{
+    font-size: 30px;
+    color: palegreen;
+    margin-top: 20px;
+    position: relative;
+    top: 200px;
+    left: 200px;
+}
+
