@@ -39,5 +39,19 @@ This guide also covers several CSS topics including:
 * Applying borders
 * Applying Margins
 * Applying Floats
-The index.html file contained in the css_tut provides a structure for implementing the CSS concepts described above. The style.css file is a stylesheet implementing the concepts.
+* Overflow Options
+* Display Properties
+* Manipulating Height and Width
+* Position Options
+* Applying Background Images
+The index.html file contained in the css_tut provides a structure for implementing the CSS concepts described above. The style.css file is a stylesheet implementing the concepts. There are more topics in the guide that will be explored at a later date as needed.
+
+#### 📂js_tut
+JavaScript is used to make elements functional; to lean JavaScript I used this [tutorial](https://www.youtube.com/watch?v=lfmg-EJ8gm4).
+This guide covers several topics and mini projects to solidify them. The following were covered in this folder:
+
+
+#### platformer
+
+
 
