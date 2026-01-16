@@ -24,6 +24,8 @@ function clearDisplay(){
 }
 
 function backspace(){
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
+    
     if (display.value==="Error"){
         display.value = ""
     }
