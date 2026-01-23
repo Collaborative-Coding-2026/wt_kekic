@@ -18,6 +18,12 @@ const spriteWidth = 64
 const spriteHeight = 64
 
 const jumpSpeed = 25
+const moveSpeed = 5
+const gravity = 1
+const numFrames = 16
+const animationFrameLimit = 1
+let animationFrameCurrent = 0
+
 //defining ground
 const ground = {
     x: 0,
@@ -74,6 +80,8 @@ function drawGround(ground){
 const keyState = {
     
 }
+
+
 window.addEventListener("keydown", (e) =>{
     e.preventDefault()
 
@@ -84,11 +92,12 @@ window.addEventListener("keydown", (e) =>{
 
     }
     if (e.key === 'a'){
-        player.x -=5
+        player.x -= moveSpeed
     }
 
-    if (e.key === ' '){
+    if (e.key === ' ' && !player.isJumping){
         player.vy -= jumpSpeed;
+        player.isJumping = true
         
     }
 })
@@ -97,11 +106,58 @@ window.addEventListener('keyup', (e) => {
     keyState(e.key) = false
 } )
 
+function continuousMovement(){
+    if (keyState('d')){
+        player.x += moveSpeed
+        animate()
+    }
+
+    if (keyState('a')){
+        player.x -= moveSpeed
+        animate()
+    }
+
+    requestAnimationFrame(continuousMovement)
+}
+
+function animate(){
+    animationFrameCurrent +=1;
+    if (animationFrameCurrent == animationFrameLimit){
+        currentFrame = (currentFrame + 1) % numFrames;
+        animationFrameCurrent = 0;
+    }
+    
+}
+function detectCollision(){
+    for (let rect of [ground, platform]){
+        if (player.x + 30 < rect.x + rect.width &&
+            player.x + player.width - 30 > rect.x &&
+            player.y + player.height> rect.y &&
+            player.y + 35< rect.y+rect.height
+        ){
+            if(player.vy > 0){
+                player.y= rect.y - player.height;
+                player.vy = 0;
+                player.isJumping = false;
+
+
+            }
+            else if (player.vy<0) {
+                player.y = rect.y + rect.height;
+                player.vy = 0;
+                
+            }
+        }
+    }
+}
+
 function gameLoop(){
     //keeps calling game loop
     ctx.clearRect(0,0,window.innerWidth, window.innerHeight);
 
-    
+    player.y += player.vy;
+    player.vy += gravity
+    detectCollision()
     drawBackground();
     drawGround(ground);
     drawGround(platform);
@@ -125,3 +181,14 @@ function gameLoop(){
 
 
 gameLoop()
+
+/** Current Goals and Stretch Goals
+ * 1. Format code I already have
+ * 2. Debug
+ * 3. Make game look prettier
+ * 4. Add health and hearts
+ * 5. Add damaging blocks 
+ * 6. Add level screen
+ * 7. Create additional levels
+ * 8. Add items or enemies (probs not gonna get to this)
+ */
