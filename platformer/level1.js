@@ -1,30 +1,40 @@
+/**
+ * Name: level1.js
+ * Author: Madison Kekic
+ * Creates first level of game
+ * Draws game elements- ground, platforms, player
+ * Implements core game mechanics- continuous movement, jumping, gravity, and collision detection
+ */
+
+//Creates new images and links to assets in background and sprites folders
 const playerSprite = new Image();
 playerSprite.src = "./sprites/spritewalk.png"
-
 const background = new Image();
 background.src = "./background/background-sky.png"
 
-//getting canvas
+//Gets canvas and sets width and height
 const canvas = document.getElementById("canvas");
-
-//make sure canvas is spanning entire window
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
-
 const ctx = canvas.getContext("2d")
 
+//Defines part of spritesheet that contains the first frame of animation
 let currentFrame = 0
 const spriteWidth = 64
 const spriteHeight = 64
 
-const jumpSpeed = 25
-const moveSpeed = 5
-const gravity = 1
-const numFrames = 16
+//Declares constants/variables for animating player
+const numFrames = 8
 const animationFrameLimit = 1
 let animationFrameCurrent = 0
 
-//defining ground
+//Constants for implementing gravity and movement
+const jumpSpeed = 25
+const moveSpeed = 5
+const gravity = 1
+
+//Defining game elements; ground, platform, and player
+//Change this and first set of constants to customize map appearance
 const ground = {
     x: 0,
     y: 900,
@@ -51,17 +61,11 @@ const player = {
 
 }
 
-//draws background color of canvas
+
+
+
+///Draws background image- pls change background image
 function drawBackground(){
-    // ctx.fillStyle = '#C8F4F9'
-    // ctx.fillRect(0,0,window.innerWidth, window.innerHeight)
-    // margin:0;
-    //     background-image: url(background/sunny-mountains-sky.png);
-    //     background-repeat: no-repeat;
-    //     background-position: center;
-        /*Doesn't scroll with us*/
-        // background-attachment: fixed;
-        // background-size: cover;
     ctx.drawImage(
         background,
         0,
@@ -72,28 +76,33 @@ function drawBackground(){
     )
 }
 
+//Draws ground and platforms- change to clearer variable name and potentially use image (new variable for ground texture??)
 function drawGround(ground){
-    ctx.fillStyle = '#98D7C2'
+    ctx.fillStyle = '#334e2dff'
     ctx.fillRect(ground.x,ground.y,ground.width, ground.height)
 }
 
+
+
+
+//Empty dictionary for saving key states (true means key is pressed, false means key is not pressed)
 const keyState = {
     
 }
 
-
+//Determines whether or not a key is being pressed and moves accordingly
 window.addEventListener("keydown", (e) =>{
     e.preventDefault()
 
-    keyState(e.key)=true
+    keyState[e.key]=true
     
-    if (e.key === 'd'){
-        player.x +=5
+    // if (e.key === 'd'){
+    //     player.x +=5
 
-    }
-    if (e.key === 'a'){
-        player.x -= moveSpeed
-    }
+    // }
+    // if (e.key === 'a'){
+    //     player.x -= moveSpeed
+    // }
 
     if (e.key === ' ' && !player.isJumping){
         player.vy -= jumpSpeed;
@@ -102,17 +111,18 @@ window.addEventListener("keydown", (e) =>{
     }
 })
 
+//Determines if a player has stopped pressing a key
 window.addEventListener('keyup', (e) => {
-    keyState(e.key) = false
+    keyState[e.key] = false
 } )
 
 function continuousMovement(){
-    if (keyState('d')){
+    if (keyState['d']){
         player.x += moveSpeed
         animate()
     }
 
-    if (keyState('a')){
+    if (keyState['a']){
         player.x -= moveSpeed
         animate()
     }
@@ -120,20 +130,26 @@ function continuousMovement(){
     requestAnimationFrame(continuousMovement)
 }
 
+
+
+//Animates player by moving frame of spritesheet
 function animate(){
     animationFrameCurrent +=1;
     if (animationFrameCurrent == animationFrameLimit){
         currentFrame = (currentFrame + 1) % numFrames;
         animationFrameCurrent = 0;
-    }
-    
+    } 
 }
+
+
+
+//Determines if player has collided with platform underneath or platform above
 function detectCollision(){
     for (let rect of [ground, platform]){
-        if (player.x + 30 < rect.x + rect.width &&
-            player.x + player.width - 30 > rect.x &&
+        if (player.x < rect.x + rect.width &&
+            player.x + player.width > rect.x &&
             player.y + player.height> rect.y &&
-            player.y + 35< rect.y+rect.height
+            player.y < rect.y+rect.height
         ){
             if(player.vy > 0){
                 player.y= rect.y - player.height;
@@ -151,16 +167,21 @@ function detectCollision(){
     }
 }
 
+
+
 function gameLoop(){
-    //keeps calling game loop
     ctx.clearRect(0,0,window.innerWidth, window.innerHeight);
+
+    animate()
 
     player.y += player.vy;
     player.vy += gravity
+    
     detectCollision()
     drawBackground();
     drawGround(ground);
     drawGround(platform);
+
     if (player.lookingRight){
         ctx.drawImage(
             playerSprite,
@@ -179,8 +200,8 @@ function gameLoop(){
     requestAnimationFrame(gameLoop)
 }
 
-
-gameLoop()
+continuousMovement()
+background.onload = () => gameLoop()
 
 /** Current Goals and Stretch Goals
  * 1. Format code I already have
