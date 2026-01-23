@@ -3,6 +3,15 @@ Author : Madison Kekic
 ## Description
 In this project, I build a platformer game in JavaScript from scratch. This repository includes my process of learning HTML, CSS, and Javascript- all of which are preliminaries for building the final product.
 ### Files Included
+
+#### platformer
+
+Resources Used:
+
+Assets From:
+
+Beyond this point are tutorials I used to build the skills needed to create this project.
+
 #### 📂 html_tut
 HTML is used to create the structure of a website; to get started learning HTML I used BroCode's guide to learning HTML and CSS for [beginners](https://www.youtube.com/watch?v=HGTJBPNC-Gw&list=PLZPZq0r_RZOPP5Yjt6IqgytMRY5uLt4y3)
 This guide covers several core HTMl concepts and tools including:
@@ -52,7 +61,7 @@ JavaScript is used to make elements functional; to lean JavaScript I used this [
 This guide covers several topics and mini projects to solidify them. The following were covered in this folder:
 
 
-#### platformer
+
 
 
 

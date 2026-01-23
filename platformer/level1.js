@@ -205,11 +205,17 @@ background.onload = () => gameLoop()
 
 /** Current Goals and Stretch Goals
  * 1. Format code I already have
- * 2. Debug
+ * 2. Debug and have screen scroll with game
  * 3. Make game look prettier
  * 4. Add health and hearts
  * 5. Add damaging blocks 
  * 6. Add level screen
  * 7. Create additional levels
  * 8. Add items or enemies (probs not gonna get to this)
+ */
+
+
+/**
+ * UI Elements: https://pixelfrog-assets.itch.io/tiny-swords
+ * 
  */
