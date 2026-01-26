@@ -1,0 +1,103 @@
+
+
+
+html, body{
+    height: 100%;
+
+    /* display: flex; */
+    background-image:
+        /* top image */
+        url("background/plx-5.png"),
+        url("background/plx-4.png"),
+        url("background/plx-3.png"),
+        url("background/plx-2.png"),
+        /*bottom layer*/
+        url("background/plx-1.png");
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    margin: 0;
+    color: white;
+    font-family: 'VT323', monospace !important;
+}
+
+
+    
+.menu {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.title{
+    font-size: 8rem;
+    margin-bottom: 50px;
+    color: white;
+
+    /*Used Copilot GPT 5.1; Prompt: How can i add a border around text to make it more visible*/
+    text-shadow:
+        -2px -2px 0 black,
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+
+}
+
+.b{
+    width: 500px;
+    height: 75px;
+    display:block;
+    margin: 15px auto;
+    padding: 20px 50px;
+    font-size: 2rem;
+    font-family: 'VT323', monospace !important;
+    border-radius: 20px;
+    background-color: #3b5755;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+
+}
+
+.b:hover {
+    background-color: #4f7a77;
+    transform: scale(1.03);
+    transition: 0.15s ease;
+}
+
+.b:active {
+    transform: scale(0.97);
+    filter: brightness(0.8);
+}
+
+
+.hidden{
+    display: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.creditinfo{
+    margin-top: 0;
+    font-size: 2.5rem;
+    text-shadow:
+        -2px -2px 0 black,
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+}
+
+.link{
+    color:white;
+}
