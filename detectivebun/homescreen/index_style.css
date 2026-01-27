@@ -5,14 +5,7 @@ html, body{
     height: 100%;
 
     /* display: flex; */
-    background-image:
-        /* top image */
-        url("background/plx-5.png"),
-        url("background/plx-4.png"),
-        url("background/plx-3.png"),
-        url("background/plx-2.png"),
-        /*bottom layer*/
-        url("background/plx-1.png");
+    background-image:url("background/sl_preview.png"); 
     background-color: black;
     background-position: center;
     background-size: cover;
@@ -36,8 +29,8 @@ html, body{
 }
 
 .title{
-    font-size: 8rem;
-    margin-bottom: 50px;
+    font-size: 7rem;
+    margin-bottom: 40px;
     color: white;
 
     /*Used Copilot GPT 5.1; Prompt: How can i add a border around text to make it more visible*/
@@ -58,7 +51,7 @@ html, body{
     font-size: 2rem;
     font-family: 'VT323', monospace !important;
     border-radius: 20px;
-    background-color: #3b5755;
+    background-color: #1a9ea5;
     border-color: white;
     color: white;
     cursor: pointer;
@@ -66,7 +59,7 @@ html, body{
 }
 
 .b:hover {
-    background-color: #4f7a77;
+    background-color: #00d4c6;
     transform: scale(1.03);
     transition: 0.15s ease;
 }
@@ -90,7 +83,7 @@ html, body{
 
 .creditinfo{
     margin-top: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-shadow:
         -2px -2px 0 black,
          2px -2px 0 black,
