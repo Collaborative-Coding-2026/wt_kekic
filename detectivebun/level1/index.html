@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    body {
+      background: black;
+    }
+
+    canvas {
+      image-rendering: pixelated;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+
+  <link rel="icon" type="image/jpeg" href="../homescreen/favicon/bunnyfavicon.jpeg">
+  <title>detectivebun lev1</title>
+</head>
+
+<body>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- Map data -->
+  <script src="./data/l_sky.js"></script>
+  <script src="./data/l_hills.js"></script>
+  <script src="./data/l_platform.js"></script>
+  <script src="./data/l_bushes.js"></script>
+  <script src="./data/l_tree.js"></script>
+  <script src="./data/l_houses.js"></script>
+  <script src="./data/l_spikes.js"></script>
+  <script src="./data/l_ladder.js"></script>
+  <script src="./data/l_gems.js"></script>
+  <script src="./data/l_cavedecor.js"></script>
+  <script src="./data/l_cherry.js"></script>
+  <script src="./data/l_fire.js"></script>
+  <script src="./data/l_end_block.js"></script>
+  <script src="./data/l_collision.js"></script>
+  <script src="./data/collisions.js"></script>
+
+  <!-- Game code -->
+  <script type= "module" src="./newindex.js"></script>
+
+</body>
+</html>
