@@ -1,27 +1,24 @@
 /**
  * Name: level1.js
  * Author: Madison Kekic
- * First level of game — map loading, rendering, physics, collisions, animation
+ * First level of game — map loading, physics, collisions, animation
  */
 
-//--------------------------------------------------
-// ASSETS
-//--------------------------------------------------
+//--ASSETS--//
 
-// Player sprite
+//Player image
 const playerSprite = new Image();
 playerSprite.src = "./assets/player/kitty.png";
 
-// Canvas setup
+//Setting up canvas
 const canvas = document.getElementById("gameCanvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 
-//--------------------------------------------------
-// MAP LOADING HELPERS
-//--------------------------------------------------
-
+//--HELPER FUNCTIONS FOR MAP--//
+//Used Copilot GPT to help debug my original functions for loading json and xml- biggest change was making the functions async
+//Prompt: Im having *insert bug* given this code *previously written code* why might that be and how can I fix it
 async function loadJSON(url) {
   const res = await fetch(url);
   return await res.json();
@@ -74,18 +71,14 @@ function findTilesetForGID(gid, tilesets) {
   return null;
 }
 
-//--------------------------------------------------
-// GLOBAL MAP DATA
-//--------------------------------------------------
+//--MAP VARS--//
 
 let map = null;
 let tilesets = [];
 let collisionRects = [];
 
-//--------------------------------------------------
-// PLAYER
-//--------------------------------------------------
-
+//drawing player
+//followed this tutorial for next functions: https://www.youtube.com/watch?v=i57Gufe3dCk
 const player = {
   x: 100,
   y: 100,
@@ -96,10 +89,9 @@ const player = {
   lookingRight: true
 };
 
-//--------------------------------------------------
-// ANIMATION
-//--------------------------------------------------
+//--ANIMATION--//
 
+//vars and consts for animation
 let currentFrame = 0;
 const spriteWidth = 32;
 const spriteHeight = 32;
@@ -108,6 +100,7 @@ const numFrames = 7;
 const animationFrameLimit = 1;
 let animationFrameCurrent = 0;
 
+//animates character
 function animate() {
   animationFrameCurrent++;
   if (animationFrameCurrent >= animationFrameLimit) {
@@ -116,18 +109,14 @@ function animate() {
   }
 }
 
-//--------------------------------------------------
-// PHYSICS
-//--------------------------------------------------
+//--PHYSICS--//
 
+//physics vars
 const gravity = 1;
 const moveSpeed = 2;
 const jumpSpeed = 10;
 
-//--------------------------------------------------
-// INPUT
-//--------------------------------------------------
-
+//--CONTROLS--//
 const keyState = {};
 
 window.addEventListener("keydown", e => {
@@ -146,19 +135,14 @@ window.addEventListener("keyup", e => {
   keyState[e.key] = false;
 });
 
-//--------------------------------------------------
-// CONTINUOUS MOVEMENT
-//--------------------------------------------------
-
+//--CONTINUOUS MOVEMENT--//
 function handleMovement() {
   if (keyState["d"]) player.x += moveSpeed;
   if (keyState["a"]) player.x -= moveSpeed;
 }
-
-//--------------------------------------------------
-// COLLISION DETECTION
-//--------------------------------------------------
-
+//--COLLISION DETECTION--//
+//origianl collision detection function did not account for json file as map- used Copilot GPT-5 to adapt previously
+//written function: 
 function detectCollision() {
   for (let rect of collisionRects) {
     if (
@@ -167,13 +151,13 @@ function detectCollision() {
       player.y < rect.y + rect.height &&
       player.y + player.height > rect.y
     ) {
-      // Landing on top
+      //top collision
       if (player.vy > 0) {
         player.y = rect.y - player.height;
         player.vy = 0;
         player.isJumping = false;
       }
-      // Hitting head
+      //bottom collision
       else if (player.vy < 0) {
         player.y = rect.y + rect.height;
         player.vy = 0;
@@ -182,10 +166,7 @@ function detectCollision() {
   }
 }
 
-//--------------------------------------------------
-// DRAW MAP
-//--------------------------------------------------
-
+//actually drawing map
 function drawMap() {
   for (const layer of map.layers) {
     if (layer.type !== "tilelayer") continue;
@@ -215,10 +196,10 @@ function drawMap() {
   }
 }
 
-//--------------------------------------------------
-// GAME LOOP
-//--------------------------------------------------
-
+//--EXTRA STUFF--//
+//ideas: damage dealing blocks, hp, gems, jumping animations
+//horizontal collisions, menu button - reset, back to title, continue
+//game loop
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -247,10 +228,7 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-//--------------------------------------------------
-// SETUP LEVEL (LOAD EVERYTHING ONCE)
-//--------------------------------------------------
-
+//loads everything in at once
 async function setupLevel() {
   map = await loadJSON("assets/maps/finmap.json");
   const mapDir = "assets/maps/";
@@ -280,9 +258,5 @@ async function setupLevel() {
 
   gameLoop();
 }
-
-//--------------------------------------------------
-// START GAME
-//--------------------------------------------------
 
 window.onload = setupLevel;
