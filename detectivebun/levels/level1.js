@@ -77,6 +77,12 @@ let map = null;
 let tilesets = [];
 let collisionRects = [];
 
+//extra vars
+let gemRects = [];
+let ladderRects = [];
+let spikeRects = [];
+
+
 //drawing player
 //followed this tutorial for next functions: https://www.youtube.com/watch?v=i57Gufe3dCk
 const player = {
@@ -197,9 +203,14 @@ function drawMap() {
 }
 
 //--EXTRA STUFF--//
+//first: ADD CAMERA
 //ideas: damage dealing blocks, hp, gems, jumping animations
 //horizontal collisions, menu button - reset, back to title, continue
 //game loop
+
+
+
+
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -255,6 +266,7 @@ async function setupLevel() {
       height: map.tileheight
     });
   }
+  
 
   gameLoop();
 }
