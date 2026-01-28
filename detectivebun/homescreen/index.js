@@ -1,5 +1,5 @@
 function startGame(){
-    window.location.href="../level1.html"
+    window.location.href="../levels/level1.html"
 }
 function showCredits(){
     const credits = document.getElementById("hiddencredits")

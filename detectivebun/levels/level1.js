@@ -101,8 +101,8 @@ const player = {
 //--------------------------------------------------
 
 let currentFrame = 0;
-const spriteWidth = 16;
-const spriteHeight = 16;
+const spriteWidth = 32;
+const spriteHeight = 32;
 
 const numFrames = 7;
 const animationFrameLimit = 1;
