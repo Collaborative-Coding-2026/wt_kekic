@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="level1_style.css">
     <title>level1-kittyland</title>
 </head>
 <body>
-    <style>
-        *{
-            background-color: black;
-            image-rendering: pixelated;
-        }
-    </style>
-    <canvas id = "gameCanvas"></canvas>
-
+    <div class = "b" id = "menubutton" onclick = "openMenu()">
+        <div class = "bar" id = "bar1"></div>
+        <div class = "bar" id = "bar2"></div>
+        <div class = "bar" id = "bar3"></div>
+    </div>
+    
+   
+    
+    <div class = "menu">
+        <button class = "mb" onclick = "resumeGame()"> Continue </button>
+        <button class = "mb" onclick = "reset()"> Reset </button>
+        <button class = "mb" onclick = "back()"> Main Menu </button>
+    </div>
+     <canvas id = "gameCanvas"></canvas>
     <script src = "level1.js"></script>
 </body>
 </html>

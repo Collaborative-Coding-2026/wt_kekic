@@ -196,26 +196,63 @@ function drawMap() {
       ctx.drawImage(
         tileset.image,
         sx, sy, tileset.tileWidth, tileset.tileHeight,
-        x, y, map.tilewidth, map.tileheight
-      );
+        x - camera.x,
+        y - camera.y,
+        map.tilewidth,
+        map.tileheight
+    );
+
     }
   }
 }
 
 //--EXTRA STUFF--//
-//first: ADD CAMERA
+
+//first: ADD CAMERA--done
 //ideas: damage dealing blocks, hp, gems, jumping animations
 //horizontal collisions, menu button - reset, back to title, continue
-//game loop
 
 
+//checks if player has fallen off map
+function checkState(){
+  if (player.y>=300){
+    //resets player
+    player.x=100
+    player.y=100
+  }
+}
+
+//--CAMERA--//
+
+const camera = {
+  x:0,
+  y:0,
+  width: canvas.width,
+  height: canvas.height
+}
+
+function updateCamera() {
+  //updates position
+  camera.x = player.x - camera.width / 2;
+  camera.y = player.y - camera.height / 2;
+
+  //makes it so the camera only shows the map
+  camera.x = Math.max(0, Math.min(camera.x, map.width * map.tilewidth - camera.width));
+  camera.y = Math.max(0, Math.min(camera.y, map.height * map.tileheight - camera.height));
+}
 
 
+//--MENU--//
+function drawButton(){
+  
+}
+
+//--GAME LOOP--//
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  updateCamera();
   drawMap();
-
+  checkState();
   handleMovement();
   animate();
 
@@ -223,18 +260,18 @@ function gameLoop() {
   player.vy += gravity;
 
   detectCollision();
-
   ctx.drawImage(
     playerSprite,
     currentFrame * spriteWidth,
     0,
     spriteWidth,
     spriteHeight,
-    player.x,
-    player.y,
+    player.x - camera.x,
+    player.y - camera.y,
     player.width,
     player.height
   );
+
 
   requestAnimationFrame(gameLoop);
 }

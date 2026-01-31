@@ -1,0 +1,65 @@
+*{
+    background-color: black;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* .b{
+    
+    width: 40px;
+    height: 40px;
+    background-color:rgb(80, 154, 80);
+    position: relative;
+    top: 43px;
+    left: 10px;
+    border-radius: 5px;
+    border-color:aliceblue;
+    
+}
+
+.bar{
+    background-color: white;
+    position: relative;
+}
+
+#bar1{
+    
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+
+}
+
+#bar2{
+    top: 10px;
+    left: 5px;
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+#bar3{
+    top: 15px;
+    left: 5px;
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+} */
+/* 
+.menu{
+    background-color: lightcoral;
+    width: 200px;
+    height: 200px;
+    top: 250px;
+    left: 50px;
+} */
