@@ -81,7 +81,7 @@ let collisionRects = [];
 let gemRects = [];
 let ladderRects = [];
 let spikeRects = [];
-
+let end = [];
 
 //drawing player
 //followed this tutorial for next functions: https://www.youtube.com/watch?v=i57Gufe3dCk
@@ -92,7 +92,10 @@ const player = {
   height: 16,
   vy: 0,
   isJumping: false,
-  lookingRight: true
+  lookingRight: true,
+  gems: 0,
+  hp: 3, 
+  invisiFrame: 0,
 };
 
 //--ANIMATION--//
@@ -208,7 +211,6 @@ function drawMap() {
 
 //--EXTRA STUFF--//
 
-//first: ADD CAMERA--done
 //ideas: damage dealing blocks, hp, gems, jumping animations
 //horizontal collisions, menu button - reset, back to title, continue
 
@@ -216,9 +218,11 @@ function drawMap() {
 //checks if player has fallen off map
 function checkState(){
   if (player.y>=300){
+    //lose hp
+    player.hp -=1;
     //resets player
-    player.x=100
-    player.y=100
+    player.x=100;
+    player.y=100;
   }
 }
 
@@ -243,9 +247,66 @@ function updateCamera() {
 
 
 //--MENU--//
-function drawButton(){
-  
+
+//--SPECIAL BLOCKS--//
+
+function detectGemCollision(){
+  for (let rect of gemRects) {
+    if (
+      player.x < rect.x + rect.width &&
+      player.x + player.width > rect.x &&
+      player.y < rect.y + rect.height &&
+      player.y + player.height > rect.y
+    ){
+      //find fast way to stop drawing gems
+      player.gems+=1;
+
+    }
 }
+}
+
+
+// function detectSpikeCollision(){
+//   for (let rect of collisionRects) {
+//     if (
+//       player.x < rect.x + rect.width &&
+//       player.x + player.width > rect.x &&
+//       player.y < rect.y + rect.height &&
+//       player.y + player.height > rect.y
+//     ){
+//       //Might need to change later
+//       if (player.invisiFrame <5){
+//         player.invisiFrame +=1;
+//       }
+//       else{
+//         //LOSE HP HERE
+//         player.hp -=1;
+//       }
+//     }
+
+// }
+
+// function detectLadderCollision(){
+//   for (let rect of ladderRects) {
+//   if (
+//       player.x < rect.x + rect.width &&
+//       player.x + player.width > rect.x &&
+//       player.y < rect.y + rect.height &&
+//       player.y + player.height > rect.y
+//     ){
+//       if (keyState['s']){
+//         player.y-=5;
+//       }
+//     }
+//     if (keyState['w']){
+//       player.y+=5;
+//     }
+
+// }
+// }
+
+//ADD ENDING BLOCK CODE
+
 
 //--GAME LOOP--//
 function gameLoop() {
@@ -258,6 +319,8 @@ function gameLoop() {
 
   player.y += player.vy;
   player.vy += gravity;
+
+  // detectLadderCollision();
 
   detectCollision();
   ctx.drawImage(
@@ -275,6 +338,7 @@ function gameLoop() {
 
   requestAnimationFrame(gameLoop);
 }
+
 
 //loads everything in at once
 async function setupLevel() {
@@ -303,7 +367,78 @@ async function setupLevel() {
       height: map.tileheight
     });
   }
-  
+
+  //Push gem rects
+  const gemLayer = map.layers.find(l => l.name === "gems");
+  for (let i = 0; i < gemLayer.data.length; i++) {
+    const gid = gemLayer.data[i];
+    if (gid === 0) continue;
+
+    const col = i % map.width;
+    const row = Math.floor(i / map.width);
+
+    gemRects.push({
+      x: col * map.tilewidth,
+      y: row * map.tileheight,
+      width: map.tilewidth,
+      height: map.tileheight
+    });
+  }
+
+
+  //Push ladder rects
+  const ladderLayer = map.layers.find(l => l.name === "ladder");
+  for (let i = 0; i < ladderLayer.data.length; i++) {
+    const gid = ladderLayer.data[i];
+    if (gid === 0) continue;
+
+    const col = i % map.width;
+    const row = Math.floor(i / map.width);
+
+    ladderRects.push({
+      x: col * map.tilewidth,
+      y: row * map.tileheight,
+      width: map.tilewidth,
+      height: map.tileheight
+    });
+  }
+
+
+  //Push spike rects
+  const spikeLayer = map.layers.find(l => l.name === "spikes");
+  for (let i = 0; i < spikeLayer.data.length; i++) {
+    const gid = spikeLayer.data[i];
+    if (gid === 0) continue;
+
+    const col = i % map.width;
+    const row = Math.floor(i / map.width);
+
+    spikeRects.push({
+      x: col * map.tilewidth,
+      y: row * map.tileheight,
+      width: map.tilewidth,
+      height: map.tileheight
+    });
+  }
+
+
+  //Push end block
+  const endLayer = map.layers.find(l => l.name === "end");
+  for (let i = 0; i < endLayer.data.length; i++) {
+    const gid = endLayer.data[i];
+    if (gid === 0) continue;
+
+    const col = i % map.width;
+    const row = Math.floor(i / map.width);
+
+    end.push({
+      x: col * map.tilewidth,
+      y: row * map.tileheight,
+      width: map.tilewidth,
+      height: map.tileheight
+    });
+  }
+
 
   gameLoop();
 }
